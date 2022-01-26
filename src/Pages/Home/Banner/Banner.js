@@ -52,16 +52,16 @@ const Banner = () => {
   return (
     <Slider {...settings}>
       {banners.map((banner) => (
-        <div className="banner">
+        <div key={banner.id} className="banner">
           <div
-            className="w-full h-full"
-            key={banner.id}
+            className="w-screen h-full "
             style={{
               backgroundColor: "rgb(220 220 220 / 49%)",
               backgroundImage: `url('${banner.src}')`,
               backgroundBlendMode: "overlay",
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
+              backgroundPosition: "center",
             }}
           >
             {/* <h2 className="h-screen w-screen">hi</h2> */}

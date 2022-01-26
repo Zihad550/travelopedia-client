@@ -8,9 +8,8 @@ import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { StarIcon } from "@heroicons/react/solid";
 import React, { useState } from "react";
-import BlogDetailModal from "../BlogDetailModal/BlogDetailModal";
 
-const Blog = ({ blog }) => {
+const Blog = ({ blog, setReload }) => {
   // handle modal
   let [isOpen, setIsOpen] = useState(false);
 
@@ -20,10 +19,24 @@ const Blog = ({ blog }) => {
 
   const { date, expense, location, rating, src, time, title, author, _id } =
     blog;
+
+  const handleDelete = () => {
+    setIsOpen(false);
+    if (window.confirm("Are you sure")) {
+      fetch(`http://localhost:8000/blogs?id=${_id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          data.deletedCount > 0 && alert("successfully deleted");
+          setReload(true);
+        });
+    }
+  };
   return (
     <>
       {/*  card */}
-      <div className="my-5 shadow-md" onClick={openModal}>
+      <div className="mb-5 shadow-md" onClick={openModal}>
         {/* card image */}
         <img className="w-full" src={src} alt="" />
         {/* card title */}
@@ -70,10 +83,20 @@ const Blog = ({ blog }) => {
             </div>
           </div>
         </div>
-      </div>
 
-      {/* blog detail modal */}
-      <BlogDetailModal isOpen={isOpen} setIsOpen={setIsOpen} blog={blog} />
+        {/* delete and update */}
+        <div className="flex py-2">
+          <button className="w-full bg-yellow-400 py-2 hover:bg-yellow-600 hover:text-white">
+            Update
+          </button>
+          <button
+            onClick={handleDelete}
+            className="w-full bg-red-400 hover:bg-red-600 py-2 hover:text-white"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
     </>
   );
 };

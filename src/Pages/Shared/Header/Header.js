@@ -5,10 +5,10 @@ import { Fragment } from "react";
 import { Link } from "react-router-dom";
 
 const navigation = [
-  { name: "Share Your Experience", href: "/shareExperience", current: true },
-  { name: "Home", href: "/", current: false },
-  { name: "Projects", href: "#", current: false },
-  { name: "Dashboard", href: "#", current: false },
+  { name: "Home", to: "/", current: true },
+  { name: "Share Your Experience", to: "/shareExperience", current: false },
+  { name: "login", to: "/login", current: false },
+  { name: "Dashboard", to: "/dashboard", current: false },
 ];
 
 function classNames(...classes) {
@@ -47,13 +47,14 @@ const Header = () => {
                     alt="Workflow"
                   />
                 </div>
-                {/* smaill screen menu */}
+
+                {/* large screen menu */}
                 <div className="hidden sm:block sm:ml-6 ">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.to}
                         className={classNames(
                           item.current
                             ? "bg-gray-900 text-white"
@@ -63,7 +64,7 @@ const Header = () => {
                         aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -154,7 +155,7 @@ const Header = () => {
                 <Disclosure.Button
                   key={item.name}
                   as={Link}
-                  to={item.href}
+                  to={item.to}
                   className={classNames(
                     item.current
                       ? "bg-gray-900 text-white"

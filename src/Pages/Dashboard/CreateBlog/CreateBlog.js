@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Header from "../Shared/Header/Header";
-import SuccessfullySubmittedModal from "./SuccessfullySubmittedModal";
+import SuccessfullySubmittedModal from "../../ShareExperience/SuccessfullySubmittedModal";
 
 const ShareExperience = () => {
   let [isOpen, setIsOpen] = useState(false);
@@ -34,9 +33,8 @@ const ShareExperience = () => {
   };
   return (
     <>
-      <Header />
       <div className="mb-6">
-        <h2 className="text-3xl text-center my-3 ">Share Your Experience</h2>
+        <h2 className="text-3xl text-center my-3 ">Create Blog</h2>
         <form
           onSubmit={handleSubmit}
           className="flex justify-center flex-col mx-4"
