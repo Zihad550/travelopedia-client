@@ -13,7 +13,6 @@ const user = {
 const navigation = [
   { name: "Dashboard", href: "/dashboard", current: true },
   { name: "Home", href: "/home", current: false },
-  { name: "Mange blogs", href: "/dashboard/blogs", current: false },
   { name: "Create New Blog", href: "/dashboard/createBlog", current: false },
   { name: "Reports", href: "#", current: false },
 ];
@@ -201,6 +200,7 @@ export default function Dashboard() {
         <main>
           <div>
             {/* Replace with your content */}
+
             <Outlet />
             {/* /End replace */}
           </div>

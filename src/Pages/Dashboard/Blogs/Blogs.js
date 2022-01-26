@@ -24,7 +24,7 @@ const Blogs = () => {
       </h2>
 
       <div>
-        <div className="grid md:mx-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
+        <div className="grid md:mx-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3  ">
           {blogs.map((blog) => (
             <Blog blog={blog} key={blog.id} setReload={setReload} />
           ))}
