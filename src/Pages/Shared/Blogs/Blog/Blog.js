@@ -9,7 +9,6 @@ import { StarIcon } from "@heroicons/react/solid";
 import React from "react";
 
 const Blog = ({ blog }) => {
-  console.log(blog);
   const { date, expense, location, rating, src, time, title, author } = blog;
   return (
     // card

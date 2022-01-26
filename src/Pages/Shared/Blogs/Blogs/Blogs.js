@@ -3,18 +3,43 @@ import Blog from "../Blog/Blog";
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
+  const size = 10;
   useEffect(() => {
-    fetch("./blogs.json")
+    fetch(`http://localhost:8000/blogs?page=${currentPage}&&size=${size}`)
       .then((res) => res.json())
-      .then((data) => setBlogs(data));
-  }, []);
+      .then((data) => {
+        console.log(data.count);
+        setBlogs(data.blogs);
+        setPageCount(Math.ceil(data.count / size));
+      });
+  }, [currentPage]);
   return (
-    <div className="">
+    <div>
       <h2 className="text-center text-5xl my-12 bg-slate-400 py-6 ">Blogs</h2>
       <div className="grid md:mx-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {blogs.map((blog) => (
           <Blog blog={blog} key={blog.id} />
         ))}
+      </div>
+      {/* pagination */}
+      <div className="flex align-center justify-center w-full mb-3">
+        <div className="">
+          {[...Array(pageCount).keys()].map((n) => (
+            <button
+              key={n}
+              onClick={() => setCurrentPage(n)}
+              className={
+                n === currentPage
+                  ? "bg-blue-500 text-white rounded-lg w-10 h-10 mr-2"
+                  : "bg-slate-700 text-white rounded-lg w-10 h-10 mr-2"
+              }
+            >
+              {n}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
