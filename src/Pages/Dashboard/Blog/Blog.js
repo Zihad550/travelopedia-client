@@ -7,16 +7,9 @@ import {
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { StarIcon } from "@heroicons/react/solid";
-import React, { useState } from "react";
+import React from "react";
 
 const Blog = ({ blog, setReload }) => {
-  // handle modal
-  let [isOpen, setIsOpen] = useState(false);
-
-  function openModal() {
-    setIsOpen(true);
-  }
-
   const {
     date,
     expense,
@@ -28,10 +21,10 @@ const Blog = ({ blog, setReload }) => {
     author,
     _id,
     image,
+    status,
   } = blog;
 
   const handleDelete = () => {
-    setIsOpen(false);
     if (window.confirm("Are you sure")) {
       fetch(`http://localhost:8000/blogs?id=${_id}`, {
         method: "DELETE",
@@ -44,10 +37,24 @@ const Blog = ({ blog, setReload }) => {
     }
   };
 
+  const handleApprove = () => {
+    fetch(`http://localhost:8000/blogs?id=${_id}`, {
+      method: "PUT",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        data.modifiedCount &&
+          alert(
+            "Approvement successful. Visit the dashboard to see all the approved blogs."
+          );
+        setReload(true);
+      });
+  };
+
   return (
     <>
       {/*  card */}
-      <div className="mb-5 shadow-md" onClick={openModal}>
+      <div className="mb-5 shadow-md">
         {/* card image */}
         {src ? (
           <img className="w-full" src={src} alt="" />
@@ -101,9 +108,18 @@ const Blog = ({ blog, setReload }) => {
 
         {/* delete and update */}
         <div className="flex py-2">
-          <button className="w-full bg-yellow-400 py-2 hover:bg-yellow-600 hover:text-white">
-            Update
-          </button>
+          {status ? (
+            <button disabled className="w-full bg-green-500">
+              Approved
+            </button>
+          ) : (
+            <button
+              onClick={handleApprove}
+              className="w-full bg-yellow-400 py-2 hover:bg-yellow-600 hover:text-white"
+            >
+              Approve
+            </button>
+          )}
           <button
             onClick={handleDelete}
             className="w-full bg-red-400 hover:bg-red-600 py-2 hover:text-white"

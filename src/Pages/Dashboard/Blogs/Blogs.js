@@ -38,12 +38,12 @@ const Blogs = () => {
   console.log(location.pathname === "/dashboard/approve");
   return (
     <>
-      <h2 className="text-center md:text-5xl text-3xl bg-slate-400 py-5">
+      <h2 className="text-center md:text-5xl text-3xl bg-slate-400 py-5 mb-2">
         Manage Blogs
       </h2>
 
       <div>
-        <div className="grid md:mx-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3  ">
+        <div className="grid md:mx-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-3 ">
           {blogs.map((blog) => (
             <Blog blog={blog} key={blog.id} setReload={setReload} />
           ))}

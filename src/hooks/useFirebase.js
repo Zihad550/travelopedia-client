@@ -25,7 +25,6 @@ const useFirebase = () => {
   const [admin, setAdmin] = useState(false);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const [hotelImage, setHotelImage] = useState("");
 
   // navigate
 
