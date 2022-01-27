@@ -35,13 +35,13 @@ const Register = () => {
     }
   };
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 mx-5">
-      <div>
+    <div className="grid grid-cols-1 lg:grid-cols-2 mx-5">
+      <div className="hidden lg:block">
         <img src={img} alt="" />
       </div>
       <div className="md:my-auto">
         <h2
-          className="text-center text-5xl mb-5 text-white tracking-widest"
+          className="text-center text-5xl mb-5 mt-20 lg:mt-0 text-white tracking-widest"
           style={{ textShadow: "0px 0px 6px black" }}
         >
           Register

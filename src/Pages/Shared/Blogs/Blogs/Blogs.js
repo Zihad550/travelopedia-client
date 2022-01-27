@@ -7,7 +7,9 @@ const Blogs = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const size = 10;
   useEffect(() => {
-    fetch(`http://localhost:8000/blogs?page=${currentPage}&&size=${size}`)
+    fetch(
+      `http://localhost:8000/blogs?page=${currentPage}&&size=${size}&&status=approved`
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data.count);

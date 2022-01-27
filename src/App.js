@@ -5,6 +5,7 @@ import Register from "./Pages/Authentication/Register/Register";
 import Blogs from "./Pages/Dashboard/Blogs/Blogs";
 import CreateBlog from "./Pages/Dashboard/CreateBlog/CreateBlog";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
+import MakeAdmin from "./Pages/Dashboard/MakeAdmin/MakeAdmin";
 import Home from "./Pages/Home/Home/Home";
 import ShareExperience from "./Pages/ShareExperience/ShareExperience";
 
@@ -27,6 +28,7 @@ function App() {
               <Route path="/dashboard" element={<Blogs />} />
               <Route path="/dashboard/approve" element={<Blogs />} />
               <Route path="/dashboard/createBlog" element={<CreateBlog />} />
+              <Route path="/dashboard/makeAdmin" element={<MakeAdmin />} />
             </Route>
           </Routes>
         </BrowserRouter>

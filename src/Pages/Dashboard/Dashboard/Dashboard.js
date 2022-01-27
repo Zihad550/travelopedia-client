@@ -1,8 +1,10 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
-import { Fragment } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Fragment, useState } from "react";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import logo from "../../../images/logo.png";
+import MakeAdminModal from "../MakeAdminModal/MakeAdminModal";
 
 const user = {
   name: "Tom Cook",
@@ -27,6 +29,10 @@ function classNames(...classes) {
 }
 
 export default function Dashboard() {
+  const navigate = useNavigate();
+  // modal functionality
+  let [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
       <div className="min-h-full">
@@ -37,11 +43,7 @@ export default function Dashboard() {
                 <div className="flex items-center justify-between h-16">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
-                      <img
-                        className="h-8 w-8"
-                        src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                        alt="Workflow"
-                      />
+                      <img className="" src={logo} alt="logo" />
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
@@ -60,6 +62,18 @@ export default function Dashboard() {
                             {item.name}
                           </Link>
                         ))}
+                        <button
+                          onClick={() => setIsOpen(true)}
+                          className="bg-gray-900 text-white hidden md:block"
+                        >
+                          Make Admin
+                        </button>
+                        <button
+                          onClick={() => navigate("/dashboard/makeAdmin")}
+                          className="bg-gray-900 text-white block md:hidden"
+                        >
+                          Make Admin
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -94,6 +108,7 @@ export default function Dashboard() {
                           leaveFrom="transform opacity-100 scale-100"
                           leaveTo="transform opacity-0 scale-95"
                         >
+                          {/* user menu */}
                           <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                             {userNavigation.map((item) => (
                               <Menu.Item key={item.name}>
@@ -151,6 +166,12 @@ export default function Dashboard() {
                       {item.name}
                     </Disclosure.Button>
                   ))}
+                  <Disclosure.Button
+                    onClick={() => setIsOpen(true)}
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                  >
+                    Make Admin
+                  </Disclosure.Button>
                 </div>
                 <div className="pt-4 pb-3 border-t border-gray-700">
                   <div className="flex items-center px-5">
@@ -181,14 +202,16 @@ export default function Dashboard() {
                   {/* user  menu */}
                   <div className="mt-3 px-2 space-y-1">
                     {userNavigation.map((item) => (
-                      <Disclosure.Button
-                        key={item.name}
-                        as={Link}
-                        to={item.href}
-                        className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"
-                      >
-                        {item.name}
-                      </Disclosure.Button>
+                      <>
+                        <Disclosure.Button
+                          key={item.name}
+                          as={Link}
+                          to={item.href}
+                          className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"
+                        >
+                          {item.name}
+                        </Disclosure.Button>
+                      </>
                     ))}
                   </div>
                 </div>
@@ -206,6 +229,8 @@ export default function Dashboard() {
           </div>
         </main>
       </div>
+
+      <MakeAdminModal isOpen={isOpen} setIsOpen={setIsOpen} />
     </>
   );
 }
