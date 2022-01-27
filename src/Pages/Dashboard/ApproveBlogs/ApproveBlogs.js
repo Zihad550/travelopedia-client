@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import Blog from "../Blog/Blog";
 
 const Blogs = () => {
@@ -8,34 +7,16 @@ const Blogs = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [reload, setReload] = useState(false);
   const size = 10;
-  const location = useLocation();
-
   useEffect(() => {
     setReload(false);
-    if (location.pathname === "/dashboard/approve") {
-      fetch(
-        `http://localhost:8000/blogs?page=${currentPage}&&size=${size}&&status=unApproved`
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data.count);
-          setBlogs(data.blogs);
-          setPageCount(Math.ceil(data.count / size));
-        });
-    } else {
-      fetch(
-        `http://localhost:8000/blogs?page=${currentPage}&&size=${size}&&status=approved`
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data.count);
-          setBlogs(data.blogs);
-          setPageCount(Math.ceil(data.count / size));
-        });
-    }
-  }, [currentPage, reload, location.pathname]);
-
-  console.log(location.pathname === "/dashboard/approve");
+    fetch(`http://localhost:8000/blogs?page=${currentPage}&&size=${size}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.count);
+        setBlogs(data.blogs);
+        setPageCount(Math.ceil(data.count / size));
+      });
+  }, [currentPage, reload]);
   return (
     <>
       <h2 className="text-center md:text-5xl text-3xl bg-slate-400 py-5">

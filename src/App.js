@@ -25,6 +25,7 @@ function App() {
             {/* dashbaord */}
             <Route path="/dashboard" element={<Dashboard />}>
               <Route path="/dashboard" element={<Blogs />} />
+              <Route path="/dashboard/approve" element={<Blogs />} />
               <Route path="/dashboard/createBlog" element={<CreateBlog />} />
             </Route>
           </Routes>

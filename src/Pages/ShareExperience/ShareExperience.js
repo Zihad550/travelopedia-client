@@ -5,6 +5,7 @@ import SuccessfullySubmittedModal from "./SuccessfullySubmittedModal";
 const ShareExperience = () => {
   let [isOpen, setIsOpen] = useState(false);
   const [fieldData, setFieldData] = useState({});
+  const [src, setSrc] = useState(null);
 
   console.log(fieldData);
 
@@ -20,16 +21,31 @@ const ShareExperience = () => {
   const handleSubmit = (e) => {
     setIsOpen(false);
     e.preventDefault();
+    if (!src && fieldData === []) {
+      return;
+    }
+    const formData = new FormData();
+    formData.append("src", src);
+    formData.append("title", fieldData.title);
+    formData.append("date", fieldData.date);
+    formData.append("time", fieldData.time);
+    formData.append("location", fieldData.location);
+    formData.append("expense", fieldData.expense);
+    formData.append("rating", fieldData.rating);
+    formData.append("description", fieldData.description);
+    formData.append("author", fieldData.author);
+    formData.append("authorEmail", fieldData.authorEmail);
+
     fetch("http://localhost:8000/blogs", {
       method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(fieldData),
+      body: formData,
     })
       .then((res) => res.json())
       .then((data) => {
         data.insertedId && setIsOpen(true);
+      })
+      .catch((error) => {
+        console.error("error", error);
       });
   };
   return (
@@ -93,10 +109,11 @@ const ShareExperience = () => {
             <input
               className="form-input bg-gray-300 text-lg  w-full rounded-md"
               placeholder="Blog Img"
-              type="text"
               name="src"
-              onBlur={handleFieldData}
+              onChange={(e) => setSrc(e.target.files[0])}
               required
+              type="file"
+              accept="image/*"
             />
           </div>
 

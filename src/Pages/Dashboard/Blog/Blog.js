@@ -17,8 +17,18 @@ const Blog = ({ blog, setReload }) => {
     setIsOpen(true);
   }
 
-  const { date, expense, location, rating, src, time, title, author, _id } =
-    blog;
+  const {
+    date,
+    expense,
+    location,
+    rating,
+    src,
+    time,
+    title,
+    author,
+    _id,
+    image,
+  } = blog;
 
   const handleDelete = () => {
     setIsOpen(false);
@@ -33,12 +43,17 @@ const Blog = ({ blog, setReload }) => {
         });
     }
   };
+
   return (
     <>
       {/*  card */}
       <div className="mb-5 shadow-md" onClick={openModal}>
         {/* card image */}
-        <img className="w-full" src={src} alt="" />
+        {src ? (
+          <img className="w-full" src={src} alt="" />
+        ) : (
+          <img src={`data:image/png;base64,${image}`} alt="" />
+        )}
         {/* card title */}
         <h2 className="md:text-3xl text-2xl pt-6 px-3 text-center">{title}</h2>
 

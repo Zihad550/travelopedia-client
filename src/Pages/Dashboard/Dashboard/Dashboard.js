@@ -14,7 +14,7 @@ const navigation = [
   { name: "Dashboard", href: "/dashboard", current: true },
   { name: "Home", href: "/home", current: false },
   { name: "Create New Blog", href: "/dashboard/createBlog", current: false },
-  { name: "Reports", href: "#", current: false },
+  { name: "Approve", href: "/dashboard/approve", current: false },
 ];
 const userNavigation = [
   { name: "Your Profile", href: "#" },
