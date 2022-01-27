@@ -40,7 +40,7 @@ const CreateBlog = () => {
     formData.append("authorEmail", fieldData.authorEmail);
     formData.append("category", category);
 
-    fetch("http://localhost:8000/blogs", {
+    fetch("https://tranquil-springs-69154.herokuapp.com/blogs", {
       method: "POST",
       body: formData,
     })

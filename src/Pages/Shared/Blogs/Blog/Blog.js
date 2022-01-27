@@ -8,11 +8,15 @@ import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { StarIcon } from "@heroicons/react/solid";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import useAuth from "../../../../hooks/useAuth";
 import BlogDetailModal from "../BlogDetailModal/BlogDetailModal";
 
 const Blog = ({ blog }) => {
+  const { user } = useAuth();
   // handle modal
   let [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   function openModal() {
     setIsOpen(true);
@@ -33,7 +37,10 @@ const Blog = ({ blog }) => {
   return (
     <>
       {/*  card */}
-      <div className="my-5 shadow-md" onClick={openModal}>
+      <div
+        className="my-5 shadow-md"
+        onClick={() => (user.email ? openModal : navigate("/login"))}
+      >
         {/* card image */}
         {src ? (
           <img className="w-full" src={src} alt="" />

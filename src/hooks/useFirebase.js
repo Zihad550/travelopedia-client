@@ -98,7 +98,7 @@ const useFirebase = () => {
   // save user to the server
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName };
-    fetch("https://polar-island-87071.herokuapp.com/users", {
+    fetch("https://tranquil-springs-69154.herokuapp.com/users", {
       method,
       headers: {
         "content-type": "application/json",
@@ -109,10 +109,10 @@ const useFirebase = () => {
 
   // checks if the user is admin
   useEffect(() => {
-    fetch(`https://polar-island-87071.herokuapp.com/users/${user.email}`)
+    fetch(`https://tranquil-springs-69154.herokuapp.com/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
-        setAdmin(data.admin);
+        setAdmin(data);
       });
   }, [user.email]);
 

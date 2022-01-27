@@ -14,7 +14,7 @@ const Blogs = () => {
     setReload(false);
     if (location.pathname === "/dashboard/approve") {
       fetch(
-        `http://localhost:8000/blogs?page=${currentPage}&&size=${size}&&status=unApproved`
+        `https://tranquil-springs-69154.herokuapp.com/blogs?page=${currentPage}&&size=${size}&&status=unApproved`
       )
         .then((res) => res.json())
         .then((data) => {
@@ -24,7 +24,7 @@ const Blogs = () => {
         });
     } else {
       fetch(
-        `http://localhost:8000/blogs?page=${currentPage}&&size=${size}&&status=approved`
+        `https://tranquil-springs-69154.herokuapp.com/blogs?page=${currentPage}&&size=${size}&&status=approved`
       )
         .then((res) => res.json())
         .then((data) => {

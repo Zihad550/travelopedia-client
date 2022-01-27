@@ -26,7 +26,7 @@ const Blog = ({ blog, setReload }) => {
 
   const handleDelete = () => {
     if (window.confirm("Are you sure")) {
-      fetch(`http://localhost:8000/blogs?id=${_id}`, {
+      fetch(`https://tranquil-springs-69154.herokuapp.com/blogs?id=${_id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -38,7 +38,7 @@ const Blog = ({ blog, setReload }) => {
   };
 
   const handleApprove = () => {
-    fetch(`http://localhost:8000/blogs?id=${_id}`, {
+    fetch(`https://tranquil-springs-69154.herokuapp.com/blogs?id=${_id}`, {
       method: "PUT",
     })
       .then((res) => res.json())
