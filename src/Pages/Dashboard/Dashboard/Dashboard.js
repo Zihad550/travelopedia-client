@@ -1,6 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { Fragment, useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import logo from "../../../images/logo.png";
@@ -18,11 +18,7 @@ const navigation = [
   { name: "Create New Blog", href: "/dashboard/createBlog", current: false },
   { name: "Approve", href: "/dashboard/approve", current: false },
 ];
-const userNavigation = [
-  { name: "Your Profile", href: "#" },
-  { name: "Settings", href: "#" },
-  { name: "Sign out", href: "#" },
-];
+const userNavigation = [{ name: "Sign out", href: "#" }];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -68,25 +64,11 @@ export default function Dashboard() {
                         >
                           Make Admin
                         </button>
-                        <button
-                          onClick={() => navigate("/dashboard/makeAdmin")}
-                          className="bg-gray-900 text-white block md:hidden"
-                        >
-                          Make Admin
-                        </button>
                       </div>
                     </div>
                   </div>
                   <div className="hidden md:block">
                     <div className="ml-4 flex items-center md:ml-6">
-                      <button
-                        type="button"
-                        className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                      >
-                        <span className="sr-only">View notifications</span>
-                        <BellIcon className="h-6 w-6" aria-hidden="true" />
-                      </button>
-
                       {/* Profile dropdown */}
                       <Menu as="div" className="ml-3 relative">
                         <div>
@@ -166,12 +148,13 @@ export default function Dashboard() {
                       {item.name}
                     </Disclosure.Button>
                   ))}
-                  <Disclosure.Button
-                    onClick={() => setIsOpen(true)}
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+
+                  <button
+                    onClick={() => navigate("/dashboard/makeAdmin")}
+                    className="bg-gray-900 text-white block md:hidden"
                   >
                     Make Admin
-                  </Disclosure.Button>
+                  </button>
                 </div>
                 <div className="pt-4 pb-3 border-t border-gray-700">
                   <div className="flex items-center px-5">
@@ -190,13 +173,6 @@ export default function Dashboard() {
                         {user.email}
                       </div>
                     </div>
-                    <button
-                      type="button"
-                      className="ml-auto bg-gray-800 flex-shrink-0 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                    >
-                      <span className="sr-only">View notifications</span>
-                      <BellIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
                   </div>
 
                   {/* user  menu */}
