@@ -39,8 +39,7 @@ function App() {
               path="/dashboard"
               element={
                 <AdminRoute>
-                  {" "}
-                  <Dashboard />{" "}
+                  <Dashboard />
                 </AdminRoute>
               }
             >

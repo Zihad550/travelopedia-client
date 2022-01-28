@@ -9,7 +9,6 @@ import logo from "../../../images/logo.png";
 const navigation = [
   { name: "Home", to: "/", current: false },
   { name: "Share Your Experience", to: "/shareExperience", current: false },
-  { name: "login", to: "/login", current: false },
   { name: "Dashboard", to: "/dashboard", current: false },
 ];
 
