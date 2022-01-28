@@ -38,17 +38,21 @@ const Blog = ({ blog }) => {
     <>
       {/*  card */}
       <div
-        className="my-5 shadow-md"
+        className="my-5 shadow-md rounded-lg"
         onClick={() => (user.email ? openModal : navigate("/login"))}
       >
         {/* card image */}
         {src ? (
-          <img className="w-full" src={src} alt="" />
+          <img
+            className="w-full rounded-tr-lg rounded-tl-lg"
+            src={src}
+            alt=""
+          />
         ) : (
           <img src={`data:image/png;base64,${image}`} alt="" />
         )}
         {/* card title */}
-        <h2 className="md:text-3xl text-2xl pt-6 px-3 text-center">{title}</h2>
+        <h2 className="md:text-3xl text-xl pt-6 px-3 text-center">{title}</h2>
 
         {/* card body */}
         <div className="px-3 my-4">
