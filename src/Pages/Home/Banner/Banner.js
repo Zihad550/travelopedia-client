@@ -14,30 +14,22 @@ const Banner = () => {
     {
       id: 1,
       src: img1,
-      bg: "https://cdn.wallpapersafari.com/99/80/IpEkdW.jpg",
-      title: "Healthy Fresh Fruits",
-      offer: "15",
+      title: "Chicago",
     },
     {
       id: 2,
       src: img2,
-      bg: "https://img.freepik.com/free-photo/photographic-equipment-with-cellphone-gray-background_23-2147856088.jpg?size=626&ext=jpg",
-      title: "Awesome Gadgets",
-      offer: "20",
+      title: "Paris",
     },
     {
       id: 3,
       src: img3,
-      bg: "https://wallpaperaccess.com/full/680075.jpg",
-      title: "Running Shoes",
-      offer: "30",
+      title: "London",
     },
     {
       id: 4,
       src: img4,
-      bg: "https://wallpaperaccess.com/full/680075.jpg",
-      title: "Running Shoes",
-      offer: "30",
+      title: "Moscow",
     },
   ];
   const settings = {
@@ -64,9 +56,10 @@ const Banner = () => {
               backgroundPosition: "center",
             }}
           >
-            {/* <h2 className="h-screen w-screen">hi</h2> */}
+            <h2 className="z-10 text-center pt-56 md:text-8xl text-7xl">
+              {banner.title}
+            </h2>
           </div>
-          {/* <img className="w-full h-full" src={banner.src} alt="" /> */}
         </div>
       ))}
     </Slider>
