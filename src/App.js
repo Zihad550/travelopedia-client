@@ -43,7 +43,7 @@ function App() {
                 </AdminRoute>
               }
             >
-              <Route path="/dashboard" element={<Blogs />} />
+              <Route path="/dashboard/blogs" element={<Blogs />} />
               <Route path="/dashboard/approve" element={<Blogs />} />
               <Route path="/dashboard/createBlog" element={<CreateBlog />} />
               <Route path="/dashboard/makeAdmin" element={<MakeAdmin />} />

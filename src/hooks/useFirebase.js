@@ -22,10 +22,11 @@ const useFirebase = () => {
 
   // states
   const [user, setUser] = useState({});
-  const [admin, setAdmin] = useState(false);
+  const [admin, setAdmin] = useState({});
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-
+  const [adminLoading, setAdminLoading] = useState(true);
+  console.log(admin.role);
   // navigate
 
   // login using google
@@ -109,10 +110,19 @@ const useFirebase = () => {
 
   // checks if the user is admin
   useEffect(() => {
+    setAdminLoading(true);
     fetch(`https://tranquil-springs-69154.herokuapp.com/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
-        setAdmin(data);
+        if (data._id) {
+          console.log("inside");
+          console.log(admin);
+
+          setAdmin(data);
+          setAdminLoading(false);
+        } else {
+          setAdminLoading(true);
+        }
       });
   }, [user.email]);
 
@@ -139,6 +149,7 @@ const useFirebase = () => {
     logOut,
     isLoading,
     setError,
+    adminLoading,
   };
 };
 
