@@ -36,25 +36,25 @@ export default function Example({ setFilter }) {
               <h4 className="text-2xl">Filter Options</h4>
               <button
                 onClick={() => setFilter("topRated")}
-                className="bg-yellow-500 rounded-lg py-1 px-2 text-white my-2"
+                className="bg-yellow-500 rounded-lg py-1 px-2 text-white my-2 focus:bg-green-500"
               >
                 Top Rated
               </button>
               <button
                 onClick={() => setFilter("leastRated")}
-                className="bg-yellow-500 rounded-lg py-1 px-2 text-white my-2"
+                className="bg-yellow-500 rounded-lg py-1 px-2 text-white my-2 focus:bg-green-500"
               >
                 Least Rated
               </button>
               <button
                 onClick={() => setFilter("mostExpensive")}
-                className="bg-yellow-500 rounded-lg py-1 px-2 text-white my-2"
+                className="bg-yellow-500 rounded-lg py-1 px-2 text-white my-2 focus:bg-green-500"
               >
                 Most Expensive
               </button>
               <button
                 onClick={() => setFilter("leastExpensive")}
-                className="bg-yellow-500 rounded-lg py-1 px-2 text-white my-2"
+                className="bg-yellow-500 rounded-lg py-1 px-2 text-white my-2 focus:bg-green-500"
               >
                 Least Expensive
               </button>
