@@ -12,7 +12,7 @@ const Home = () => {
   const size = 10;
   useEffect(() => {
     fetch(
-      `http://localhost:8000/blogs?page=${currentPage}&&size=${size}&&status=approved&&filter=${filter}`
+      `https://tranquil-springs-69154.herokuapp.com/blogs?page=${currentPage}&&size=${size}&&status=approved&&filter=${filter}`
     )
       .then((res) => res.json())
       .then((data) => {
