@@ -2,7 +2,7 @@ import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import { Fragment } from "react";
 
-export default function Example() {
+export default function Example({ setFilter }) {
   return (
     <div className="right-0 w-full md:w-32 mr-1 text-right absolute top-16 ">
       <Menu as="div" className="relative inline-block text-left w-full ">
@@ -31,6 +31,33 @@ export default function Example() {
               <p>Dubai</p>
               <p>Chicago</p>
               <p>Paris</p>
+            </div>
+            <div className="px-5">
+              <h4 className="text-2xl">Filter Options</h4>
+              <button
+                onClick={() => setFilter("topRated")}
+                className="bg-yellow-500 rounded-lg py-1 px-2 text-white my-2"
+              >
+                Top Rated
+              </button>
+              <button
+                onClick={() => setFilter("leastRated")}
+                className="bg-yellow-500 rounded-lg py-1 px-2 text-white my-2"
+              >
+                Least Rated
+              </button>
+              <button
+                onClick={() => setFilter("mostExpensive")}
+                className="bg-yellow-500 rounded-lg py-1 px-2 text-white my-2"
+              >
+                Most Expensive
+              </button>
+              <button
+                onClick={() => setFilter("leastExpensive")}
+                className="bg-yellow-500 rounded-lg py-1 px-2 text-white my-2"
+              >
+                Least Expensive
+              </button>
             </div>
           </Menu.Items>
         </Transition>
