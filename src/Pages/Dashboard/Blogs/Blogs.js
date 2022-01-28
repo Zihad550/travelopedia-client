@@ -11,8 +11,8 @@ const Blogs = () => {
   const location = useLocation();
 
   useEffect(() => {
-    setReload(false);
-    if (location.pathname === "/dashboard/approve") {
+    if (location.pathname === "/dashboard/approve" || reload) {
+      setReload(false);
       fetch(
         `https://tranquil-springs-69154.herokuapp.com/blogs?page=${currentPage}&&size=${size}&&status=unApproved`
       )
@@ -43,7 +43,7 @@ const Blogs = () => {
       </h2>
 
       <div>
-        <div className="grid md:mx-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-3 ">
+        <div className="grid md:mx-4 grid-cols-1 lg:mx-56 lg:grid-cols-2  gap-3 ">
           {blogs.map((blog) => (
             <Blog blog={blog} key={blog.id} setReload={setReload} />
           ))}

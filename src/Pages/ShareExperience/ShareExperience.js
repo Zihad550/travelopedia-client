@@ -65,7 +65,7 @@ const ShareExperience = () => {
   return (
     <>
       <Header />
-      <div className="grid lg:grid-cols-2 lg:mx-20">
+      <div className="grid lg:grid-cols-2 lg:mx-20 lg:my-10">
         {/* img container */}
         <div className="hidden lg:block">
           <img className="w-full h-auto " src={img} alt="" />

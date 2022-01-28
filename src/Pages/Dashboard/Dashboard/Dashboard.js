@@ -5,15 +5,13 @@ import { useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import logo from "../../../images/logo.png";
-import MakeAdminModal from "../MakeAdminModal/MakeAdminModal";
 
 const navigation = [
-  { name: "Dashboard", href: "/dashboard", current: true },
+  { name: "Dashboard", href: "/dashboard", current: false },
   { name: "Home", href: "/home", current: false },
   { name: "Create New Blog", href: "/dashboard/createBlog", current: false },
   { name: "Approve", href: "/dashboard/approve", current: false },
 ];
-const userNavigation = [{ name: "Sign out", href: "#" }];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -55,8 +53,8 @@ export default function Dashboard() {
                           </Link>
                         ))}
                         <button
-                          onClick={() => setIsOpen(true)}
-                          className="bg-gray-900 text-white hidden md:block"
+                          onClick={() => navigate("/dashboard/makeAdmin")}
+                          className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                         >
                           Make Admin
                         </button>
@@ -128,8 +126,6 @@ export default function Dashboard() {
           </div>
         </main>
       </div>
-
-      <MakeAdminModal isOpen={isOpen} setIsOpen={setIsOpen} />
     </>
   );
 }

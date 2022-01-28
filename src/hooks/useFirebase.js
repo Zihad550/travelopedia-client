@@ -22,11 +22,11 @@ const useFirebase = () => {
 
   // states
   const [user, setUser] = useState({});
-  const [admin, setAdmin] = useState({});
+  const [admin, setAdmin] = useState(false);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [adminLoading, setAdminLoading] = useState(true);
-  console.log(admin.role);
+
   // navigate
 
   // login using google
@@ -114,11 +114,8 @@ const useFirebase = () => {
     fetch(`https://tranquil-springs-69154.herokuapp.com/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
-        if (data._id) {
-          console.log("inside");
-          console.log(admin);
-
-          setAdmin(data);
+        if (data.admin) {
+          setAdmin(data.admin);
           setAdminLoading(false);
         } else {
           setAdminLoading(true);

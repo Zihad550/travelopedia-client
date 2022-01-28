@@ -43,10 +43,38 @@ function App() {
                 </AdminRoute>
               }
             >
-              <Route path="/dashboard/blogs" element={<Blogs />} />
-              <Route path="/dashboard/approve" element={<Blogs />} />
-              <Route path="/dashboard/createBlog" element={<CreateBlog />} />
-              <Route path="/dashboard/makeAdmin" element={<MakeAdmin />} />
+              <Route
+                path="/dashboard"
+                element={
+                  <AdminRoute>
+                    <Blogs />
+                  </AdminRoute>
+                }
+              />
+              <Route
+                path="/dashboard/approve"
+                element={
+                  <AdminRoute>
+                    <Blogs />
+                  </AdminRoute>
+                }
+              />
+              <Route
+                path="/dashboard/createBlog"
+                element={
+                  <AdminRoute>
+                    <CreateBlog />
+                  </AdminRoute>
+                }
+              />
+              <Route
+                path="/dashboard/makeAdmin"
+                element={
+                  <AdminRoute>
+                    <MakeAdmin />
+                  </AdminRoute>
+                }
+              />
             </Route>
 
             {/* no match route */}

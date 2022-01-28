@@ -31,8 +31,10 @@ const Blog = ({ blog, setReload }) => {
       })
         .then((res) => res.json())
         .then((data) => {
-          data.deletedCount > 0 && alert("successfully deleted");
-          setReload(true);
+          if (data.deletedCount > 0) {
+            alert("successfully deleted");
+            setReload(true);
+          }
         });
     }
   };
@@ -43,11 +45,12 @@ const Blog = ({ blog, setReload }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        data.modifiedCount &&
+        if (data.modifiedCount) {
           alert(
             "Approvement successful. Visit the dashboard to see all the approved blogs."
           );
-        setReload(true);
+          setReload(true);
+        }
       });
   };
 

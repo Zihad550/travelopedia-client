@@ -39,6 +39,7 @@ const CreateBlog = () => {
     formData.append("author", fieldData.author);
     formData.append("authorEmail", fieldData.authorEmail);
     formData.append("category", category);
+    formData.append("status", "approved");
 
     fetch("https://tranquil-springs-69154.herokuapp.com/blogs", {
       method: "POST",
@@ -63,7 +64,7 @@ const CreateBlog = () => {
   ];
   return (
     <>
-      <div className="grid lg:grid-cols-2 md:mx-20">
+      <div className="grid lg:grid-cols-2 md:mx-20 lg:my-10">
         {/* img container */}
         <div className="hidden lg:block">
           <img className="w-full h-auto" src={img} alt="" />

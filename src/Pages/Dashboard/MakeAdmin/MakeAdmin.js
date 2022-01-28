@@ -13,13 +13,13 @@ const MakeAdmin = () => {
       });
   };
   return (
-    <div className="grid md:grid-cols-2">
+    <div className=" ">
       {/* form container */}
-      <div className="my-auto flex flex-col">
+      <div className="my-auto w-96 h-96 mx-auto mt-20">
         <h2 className="text-center text-4xl my-5">Add New Admin</h2>
         <form onSubmit={handleMakeAdmin} className="mx-auto">
           <input
-            className="rounded-lg"
+            className="rounded-lg w-full"
             type="email"
             name="email"
             placeholder="Email"

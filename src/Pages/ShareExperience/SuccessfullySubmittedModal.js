@@ -1,10 +1,14 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
+import { useLocation } from "react-router-dom";
 
 export default function SuccessfullySubmittedModal({ isOpen, setIsOpen }) {
   function closeModal() {
     setIsOpen(false);
   }
+
+  const location = useLocation();
+  console.log(location.pathname === "/dashboard/createBlog");
 
   return (
     <>
@@ -44,17 +48,36 @@ export default function SuccessfullySubmittedModal({ isOpen, setIsOpen }) {
               leaveTo="opacity-0 scale-95"
             >
               <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
-                <Dialog.Title
-                  as="h3"
-                  className="text-lg font-medium leading-6 text-gray-900"
-                >
-                  Thank you for sharing
-                </Dialog.Title>
-                <div className="mt-2">
-                  <p className="text-sm text-gray-500">
-                    Your blog has been send to the admins for approval.
-                  </p>
-                </div>
+                {location.pathname === "/dashboard/createBlog" ? (
+                  <>
+                    <Dialog.Title
+                      as="h3"
+                      className="text-lg font-medium leading-6 text-gray-900"
+                    >
+                      Blog creation successful
+                    </Dialog.Title>
+                    <div className="mt-2">
+                      <p className="text-sm text-gray-500">
+                        Your blog has been successfully published. Go to your
+                        dashboard or homepage to see it.
+                      </p>
+                    </div>{" "}
+                  </>
+                ) : (
+                  <>
+                    <Dialog.Title
+                      as="h3"
+                      className="text-lg font-medium leading-6 text-gray-900"
+                    >
+                      Thank you for sharing
+                    </Dialog.Title>
+                    <div className="mt-2">
+                      <p className="text-sm text-gray-500">
+                        Your blog has been send to the admins for approval.
+                      </p>
+                    </div>
+                  </>
+                )}
 
                 <div className="mt-4">
                   <button

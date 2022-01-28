@@ -4,20 +4,15 @@ import useAuth from "../../../hooks/useAuth";
 
 const AdminRoute = ({ children, ...rest }) => {
   const { user, isLoading, admin, adminLoading } = useAuth();
-  console.log(adminLoading);
-
-  console.log(user, admin);
+  console.log(user.email, admin);
   const location = useLocation();
-  if (adminLoading && Object.keys(admin).length === 0) {
-    return <div className="rounded-full bg-white border-4 border-red-600" />;
+  if (adminLoading) {
+    return <div className="rounded-full w-20 h-20 border-4 border-red-600" />;
+  }
+  if (admin && user.email) {
+    return children;
   } else {
-    if (user.email) {
-      if (admin.role === "admin") {
-        return children;
-      } else {
-        return <Navigate to="/login" state={{ from: location }} />;
-      }
-    }
+    return <Navigate to="/login" state={{ from: location }} />;
   }
 };
 
