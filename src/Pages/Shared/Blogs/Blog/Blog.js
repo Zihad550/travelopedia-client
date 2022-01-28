@@ -39,7 +39,7 @@ const Blog = ({ blog }) => {
       {/*  card */}
       <div
         className="my-5 shadow-md rounded-lg"
-        onClick={() => (user.email ? openModal : navigate("/login"))}
+        onClick={() => (user.email ? openModal() : navigate("/login"))}
       >
         {/* card image */}
         {src ? (

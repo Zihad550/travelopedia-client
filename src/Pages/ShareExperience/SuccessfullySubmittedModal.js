@@ -8,7 +8,6 @@ export default function SuccessfullySubmittedModal({ isOpen, setIsOpen }) {
   }
 
   const location = useLocation();
-  console.log(location.pathname === "/dashboard/createBlog");
 
   return (
     <>

@@ -9,7 +9,6 @@ import logo from "../../../images/logo.png";
 const navigation = [
   { name: "Home", to: "/", current: false },
   { name: "Share Your Experience", to: "/shareExperience", current: false },
-  { name: "Dashboard", to: "/dashboard", current: false },
 ];
 
 function classNames(...classes) {
@@ -18,7 +17,7 @@ function classNames(...classes) {
 
 const Header = () => {
   const navigate = useNavigate();
-  const { user, logOut } = useAuth();
+  const { user, logOut, admin } = useAuth();
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -61,6 +60,14 @@ const Header = () => {
                         {item.name}
                       </Link>
                     ))}
+                    {admin && (
+                      <Link
+                        to="/dashboard"
+                        className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                      >
+                        Dashboard
+                      </Link>
+                    )}
                   </div>
                 </div>
               </div>
@@ -150,6 +157,14 @@ const Header = () => {
                   {item.name}
                 </Disclosure.Button>
               ))}
+              {admin && (
+                <Disclosure.Button
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                  onClick={() => navigate("/dashboard")}
+                >
+                  Dashboard
+                </Disclosure.Button>
+              )}
             </div>
           </Disclosure.Panel>
         </>

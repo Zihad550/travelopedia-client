@@ -2,13 +2,21 @@ import React, { useState } from "react";
 
 const MakeAdmin = () => {
   const [email, setEmail] = useState("");
+  console.log(email);
 
   const handleMakeAdmin = (e) => {
+    const user = { email: email };
     e.preventDefault();
-    fetch(``)
+    fetch(`https://tranquil-springs-69154.herokuapp.com/users/admin`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        data.modifiedCount > 0 && alert("successfully maked");
         setEmail("");
       });
   };
