@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
+import Title from "../../Shared/Title/Title";
 
 const Sponsors = () => {
   const [sponsors, setSponsors] = useState([]);
@@ -48,7 +49,7 @@ const Sponsors = () => {
 
   return (
     <div className="my-20">
-      <h2 className="text-center text-5xl mb-8">Our Sponsors</h2>
+      <Title>Our Sponsors</Title>
       <Slider {...settings}>
         {sponsors.map((sponsor) => (
           <div key={sponsor.id}>

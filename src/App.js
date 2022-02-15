@@ -8,6 +8,7 @@ import Blogs from "./Pages/Dashboard/Blogs/Blogs";
 import CreateBlog from "./Pages/Dashboard/CreateBlog/CreateBlog";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import MakeAdmin from "./Pages/Dashboard/MakeAdmin/MakeAdmin";
+import Contact from "./Pages/Home/Contact/Contact";
 import Home from "./Pages/Home/Home/Home";
 import NoMatchRoute from "./Pages/NoMatchRoute/NoMatchRoute";
 import Footer from "./Pages/Shared/Footer/Footer";
@@ -21,6 +22,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/contact" element={<Contact />} />
             <Route
               path="/shareExperience"
               element={

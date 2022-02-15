@@ -1,12 +1,11 @@
 import React from "react";
+import Title from "../../Title/Title";
 import Blog from "../Blog/Blog";
 
 const Blogs = ({ blogs, pageCount, currentPage, setCurrentPage }) => {
   return (
-    <div>
-      <h2 className="text-center text-5xl md:my-12 mt-10 bg-slate-400 py-6 ">
-        Blogs
-      </h2>
+    <div className="mt-14">
+      <Title>Blogs</Title>
       <div className="grid md:mx-10 grid-cols-1 xl:grid-cols-3 md:grid-cols-2 lg:mx-56 sm:gap-x-5 mx-8">
         {blogs.map((blog) => (
           <Blog blog={blog} key={blog._id} />

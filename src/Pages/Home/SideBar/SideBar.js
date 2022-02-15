@@ -86,7 +86,7 @@ export default function Example({ setFilter }) {
                 <div>
                   <label
                     for="countries"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
                   >
                     Filter by Author:
                   </label>
@@ -94,7 +94,7 @@ export default function Example({ setFilter }) {
                     name="author"
                     onChange={handleFilterOption}
                     id="countries"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   >
                     {authors.map((author) => (
                       <option key={author.id} value={author.name}>
@@ -109,14 +109,14 @@ export default function Example({ setFilter }) {
                 <div className="mt-3">
                   <label
                     for="countries"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
                   >
                     Filter by Country:
                   </label>
                   <select
                     onChange={(e) => setSelectedAuthor(e.target.value)}
                     id="countries"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   >
                     {authors.map((author) => (
                       <option key={author.id} value={author.name}>
@@ -131,7 +131,7 @@ export default function Example({ setFilter }) {
                 <div className="mt-3">
                   <label
                     for="countries"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
                   >
                     Price Range:
                   </label>
@@ -140,14 +140,14 @@ export default function Example({ setFilter }) {
                       placeholder="Minium Price"
                       min="0"
                       type="number"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       required
                     />
                     <input
                       placeholder="Maximum Price"
                       min="0"
                       type="number"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-1"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-1"
                       required
                     />
                   </div>
@@ -157,7 +157,7 @@ export default function Example({ setFilter }) {
                 {/* filter applying btn */}
                 <button
                   type="button"
-                  class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900 mt-3"
+                  className="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900 mt-3"
                 >
                   Apply Custom Filter
                 </button>

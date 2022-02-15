@@ -8,6 +8,7 @@ import logo from "../../../images/logo.png";
 
 const navigation = [
   { name: "Home", to: "/", current: false },
+  { name: "Contact Us", to: "/contact", current: false },
   { name: "Share Your Experience", to: "/shareExperience", current: false },
 ];
 
