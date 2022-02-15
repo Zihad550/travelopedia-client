@@ -27,7 +27,7 @@ const Contact = () => {
         "service_f285mw9",
         "template_dp3s2l4",
         form.current,
-        "user_zhFfInA9MfeHXHO7YmUav"
+        process.env.REACT_APP_EMAILJS_USER
       )
       .then(
         (result) => {
