@@ -15,6 +15,7 @@ export default function Example({
   };
   console.log(filterOptions);
   const authors = [
+    { id: 1, name: "Select Author name" },
     { id: 2, name: "Muzahid" },
     { id: 3, name: "Rabbi" },
     { id: 4, name: "John" },
@@ -26,6 +27,10 @@ export default function Example({
   ];
 
   const countries = [
+    {
+      id: 8,
+      name: "Select Country",
+    },
     {
       id: 1,
       name: "Paris, France",

@@ -17,15 +17,15 @@ const Home = () => {
   console.log(author, country, minPrice, maxPrice);
   const size = 10;
   useEffect(() => {
-    setApplyFilter(false);
     fetch(
-      `http://localhost:8000/blogs?page=${currentPage}&&size=${size}&&status=approved&&filter=${filter}&&author=${author}&&country=${country}&&minPrice=${minPrice}&&maxPrice=${maxPrice}`
+      `http://localhost:8000/blogs?page=${currentPage}&&size=${size}&&status=approved&&filter=${filter}&&author=${author}&&country=${country}&&minPrice=${minPrice}&&maxPrice=${maxPrice}&&applyFilter=${applyFilter}`
     )
       .then((res) => res.json())
       .then((data) => {
         console.log(data.count);
         setBlogs(data.blogs);
         setPageCount(Math.ceil(data.count / size));
+        setApplyFilter(false);
       });
   }, [currentPage, filter, applyFilter]);
   return (
