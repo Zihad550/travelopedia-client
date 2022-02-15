@@ -3,6 +3,7 @@ import Blogs from "../../Shared/Blogs/Blogs/Blogs";
 import Header from "../../Shared/Header/Header";
 import Banner from "../Banner/Banner";
 import SideBar from "../SideBar/SideBar";
+import Sponsors from "../Sponsors/Sponsors";
 
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
@@ -32,6 +33,8 @@ const Home = () => {
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
       />
+
+      <Sponsors />
     </div>
   );
 };

@@ -7,7 +7,7 @@ const Blogs = ({ blogs, pageCount, currentPage, setCurrentPage }) => {
       <h2 className="text-center text-5xl md:my-12 mt-10 bg-slate-400 py-6 ">
         Blogs
       </h2>
-      <div className="grid md:mx-10 grid-cols-1 lg:grid-cols-3 md:grid-cols-2 lg:mx-56 sm:gap-x-5 mx-8">
+      <div className="grid md:mx-10 grid-cols-1 xl:grid-cols-3 md:grid-cols-2 lg:mx-56 sm:gap-x-5 mx-8">
         {blogs.map((blog) => (
           <Blog blog={blog} key={blog._id} />
         ))}

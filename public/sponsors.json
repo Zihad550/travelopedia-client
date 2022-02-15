@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "OnConnect",
+    "src": "https://i.ibb.co/dGSYVZX/logo1.png"
+  },
+  {
+    "id": 2,
+    "name": "HVAC",
+    "src": "https://i.ibb.co/2KZnyFV/logo2.png"
+  },
+  {
+    "id": 3,
+    "name": "FIFTH",
+    "src": "https://i.ibb.co/1zcR9vZ/logo3.png"
+  },
+  {
+    "id": 4,
+    "name": "KAIMU",
+    "src": "https://i.ibb.co/y5GWrnp/logo4.png"
+  },
+  {
+    "id": 5,
+    "name": "PEARL",
+    "src": "https://i.ibb.co/HpQxb6G/logo5.png"
+  },
+  {
+    "id": 6,
+    "name": "SUPREME",
+    "src": "https://i.ibb.co/Lt6fnjy/logo6.png"
+  },
+  {
+    "id": 7,
+    "name": "SAZA",
+    "src": "https://i.ibb.co/Q6GMt0H/logo7.png"
+  },
+  {
+    "id": 8,
+    "name": "bluewave",
+    "src": "https://i.ibb.co/F8fZn5h/logo8.png"
+  }
+]
