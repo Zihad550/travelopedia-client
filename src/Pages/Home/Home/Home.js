@@ -10,6 +10,7 @@ const Home = () => {
   const [pageCount, setPageCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
   const [filter, setFilter] = useState("");
+  const [applyFilter, setApplyFilter] = useState(false);
   const size = 10;
   useEffect(() => {
     fetch(
@@ -26,7 +27,7 @@ const Home = () => {
     <div>
       <Header />
       <Banner />
-      <SideBar setFilter={setFilter} />
+      <SideBar setFilter={setFilter} setApplyFilter={setApplyFilter} />
       <Blogs
         blogs={blogs}
         pageCount={pageCount}

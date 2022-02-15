@@ -2,8 +2,7 @@ import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import { Fragment, useState } from "react";
 
-export default function Example({ setFilter }) {
-  const [selectedAuthor, setSelectedAuthor] = useState("");
+export default function Example({ setFilter, setApplyFilter }) {
   const [filterOptions, setFilterOptions] = useState({});
 
   const handleFilterOption = (e) => {
@@ -11,7 +10,7 @@ export default function Example({ setFilter }) {
     newData[e.target.name] = e.target.value;
     console.log(newData);
   };
-  console.log(selectedAuthor);
+  console.log(filterOptions);
   const authors = [
     { id: 1, name: "Select Author Name" },
     { id: 2, name: "Muzahid" },
@@ -22,6 +21,37 @@ export default function Example({ setFilter }) {
     { id: 7, name: "Jehad Hossain" },
     { id: 8, name: "Albert Robin" },
     { id: 9, name: "Zunayet" },
+  ];
+
+  const countries = [
+    {
+      id: 1,
+      name: "Paris, France",
+    },
+    {
+      id: 2,
+      name: "London",
+    },
+    {
+      id: 3,
+      name: "Russia",
+    },
+    {
+      id: 4,
+      name: "Paris",
+    },
+    {
+      id: 5,
+      name: "India",
+    },
+    {
+      id: 6,
+      name: "Pakistan",
+    },
+    {
+      id: 7,
+      name: "Palestine",
+    },
   ];
   return (
     <div className="right-0 w-full md:w-32 mr-1 text-right absolute top-16 ">
@@ -114,13 +144,14 @@ export default function Example({ setFilter }) {
                     Filter by Country:
                   </label>
                   <select
-                    onChange={(e) => setSelectedAuthor(e.target.value)}
+                    name="country"
+                    onChange={handleFilterOption}
                     id="countries"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   >
-                    {authors.map((author) => (
-                      <option key={author.id} value={author.name}>
-                        {author.name}
+                    {countries.map((country) => (
+                      <option key={country.id} value={country.name}>
+                        {country.name}
                       </option>
                     ))}
                   </select>
@@ -137,6 +168,8 @@ export default function Example({ setFilter }) {
                   </label>
                   <div className="flex">
                     <input
+                      name="minPrice"
+                      onChange={handleFilterOption}
                       placeholder="Minium Price"
                       min="0"
                       type="number"
@@ -144,6 +177,8 @@ export default function Example({ setFilter }) {
                       required
                     />
                     <input
+                      onChange={handleFilterOption}
+                      name="maxPrice"
                       placeholder="Maximum Price"
                       min="0"
                       type="number"

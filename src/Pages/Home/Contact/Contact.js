@@ -1,4 +1,12 @@
-import React, { useState } from "react";
+import {
+  faFacebook,
+  faGithub,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import emailjs from "emailjs-com";
+import React, { useRef, useState } from "react";
 import Button from "../../../components/Button";
 import Input from "../../../components/Input";
 import TextArea from "../../../components/TextArea";
@@ -7,30 +15,46 @@ import Header from "../../Shared/Header/Header";
 import Title from "../../Shared/Title/Title";
 
 const Contact = () => {
-  const [data, setData] = useState({});
-  console.log(data);
-  const handleSendMessage = (e) => {
+  const form = useRef();
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
+  const sendEmail = (e) => {
     e.preventDefault();
+    setSuccess(false);
+
+    emailjs
+      .sendForm(
+        "service_f285mw9",
+        "template_dp3s2l4",
+        form.current,
+        "user_zhFfInA9MfeHXHO7YmUav"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          setError(error.text);
+        }
+      );
+    e.target.reset();
+    setSuccess(true);
   };
 
-  const handleFormData = (e) => {
-    const newData = { ...data };
-    newData[e.target.name] = e.target.value;
-    setData(newData);
-  };
   return (
     <div>
       <Header />
-      <Title>Contact Us</Title>
-      <div className="grid grid-cols-3 gap-2 mx-5">
-        <div className="col-span-2">
+      <Title classes="mt-5">Contact Us</Title>
+      <div className="grid grid-cols-2 gap-5 mx-5 py-10">
+        {/* contact */}
+        <div className="">
           {/* img */}
           <div>
             <img src={src} alt="" />
           </div>
 
           {/* disc */}
-          <p>
+          <p className=" text-center text-justify">
             My full name is Jehad Hossain. I’m a MERN Stack Web Developer. I
             have completed several courses, in the field of web development and
             learned about JavaScript, React, MaterialUI, MongoDB, Node.js, and
@@ -40,12 +64,69 @@ const Contact = () => {
             My hobbies are exploring new things, reading skill
             development-related books, and walking in the morning.
           </p>
+        </div>
+        {/* contact */}
 
-          <form onSubmit={handleSendMessage}>
+        {/* side bar */}
+        {/* phone and email */}
+        <div className="text-center my-auto">
+          <h4 className="text-xl text-center mb-3">My Contacts</h4>
+          <div>
+            <p>Phone: +880 1855629170</p>
+            <p className="mb-1">E-mail: jehadhossain008@gmail.com</p>
+          </div>
+          {/* social Links */}
+          <div>
+            <a
+              target="_blank"
+              href="https://jehad-hossain.netlify.app/"
+              rel="noreferrer"
+            >
+              <FontAwesomeIcon
+                className="text-4xl text-violet-500 mr-2 cursor-pointer"
+                icon={faUser}
+              />
+            </a>
+
+            <a
+              href="https://github.com/Zihad550"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FontAwesomeIcon
+                className="text-4xl text-black mr-2 cursor-pointer"
+                icon={faGithub}
+              />
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/jehad-hossain/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FontAwesomeIcon
+                className="text-4xl text-blue-400 mr-2 cursor-pointer"
+                icon={faLinkedin}
+              />
+            </a>
+            <a
+              href="https://www.facebook.com/zihad31hussain/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FontAwesomeIcon
+                className="text-4xl text-blue-400 mr-2 cursor-pointer"
+                icon={faFacebook}
+              />
+            </a>
+          </div>
+          <h4 className="text-xl text-center mb-3 mt-5">
+            Or, message me directly
+          </h4>
+          <form onSubmit={sendEmail} ref={form}>
             {/* name  field */}
             <Input
-              name="name"
-              onChange={handleFormData}
+              name="user_name"
               placeholder="Name"
               type="text"
               icon={
@@ -67,8 +148,7 @@ const Contact = () => {
             />
             {/* email field */}
             <Input
-              name="email"
-              onChange={handleFormData}
+              name="user_email"
               placeholder="E-mail"
               type="email"
               icon={
@@ -85,11 +165,7 @@ const Contact = () => {
             />
 
             {/* message */}
-            <TextArea
-              name="message"
-              onBlur={handleFormData}
-              placeholder="Your message"
-            />
+            <TextArea name="message" placeholder="Your message" />
 
             <Button type="submit" classes="w-full mx-auto mt-2">
               Send Message
