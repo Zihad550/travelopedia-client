@@ -11,10 +11,15 @@ const Home = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [filter, setFilter] = useState("");
   const [applyFilter, setApplyFilter] = useState(false);
+  const [filterOptions, setFilterOptions] = useState({});
+  console.log(applyFilter, filterOptions);
+  const { author, country, minPrice, maxPrice } = filterOptions;
+  console.log(author, country, minPrice, maxPrice);
   const size = 10;
   useEffect(() => {
+    setApplyFilter(false);
     fetch(
-      `https://tranquil-springs-69154.herokuapp.com/blogs?page=${currentPage}&&size=${size}&&status=approved&&filter=${filter}`
+      `http://localhost:8000/blogs?page=${currentPage}&&size=${size}&&status=approved&&filter=${filter}&&author=${author}&&country=${country}&&minPrice=${minPrice}&&maxPrice=${maxPrice}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -22,12 +27,17 @@ const Home = () => {
         setBlogs(data.blogs);
         setPageCount(Math.ceil(data.count / size));
       });
-  }, [currentPage, filter]);
+  }, [currentPage, filter, applyFilter]);
   return (
     <div>
       <Header />
       <Banner />
-      <SideBar setFilter={setFilter} setApplyFilter={setApplyFilter} />
+      <SideBar
+        setFilter={setFilter}
+        setApplyFilter={setApplyFilter}
+        filterOptions={filterOptions}
+        setFilterOptions={setFilterOptions}
+      />
       <Blogs
         blogs={blogs}
         pageCount={pageCount}

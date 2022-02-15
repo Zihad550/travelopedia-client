@@ -1,18 +1,20 @@
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 
-export default function Example({ setFilter, setApplyFilter }) {
-  const [filterOptions, setFilterOptions] = useState({});
-
+export default function Example({
+  setFilter,
+  setApplyFilter,
+  filterOptions,
+  setFilterOptions,
+}) {
   const handleFilterOption = (e) => {
     const newData = { ...filterOptions };
     newData[e.target.name] = e.target.value;
-    console.log(newData);
+    setFilterOptions(newData);
   };
   console.log(filterOptions);
   const authors = [
-    { id: 1, name: "Select Author Name" },
     { id: 2, name: "Muzahid" },
     { id: 3, name: "Rabbi" },
     { id: 4, name: "John" },
@@ -191,6 +193,7 @@ export default function Example({ setFilter, setApplyFilter }) {
 
                 {/* filter applying btn */}
                 <button
+                  onClick={() => setApplyFilter(true)}
                   type="button"
                   className="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900 mt-3"
                 >
