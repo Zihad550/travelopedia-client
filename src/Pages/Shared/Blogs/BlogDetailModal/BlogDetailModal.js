@@ -24,6 +24,7 @@ export default function BlogDetailModal({ isOpen, setIsOpen, blog }) {
     title,
     author,
     description,
+    _id,
   } = blog;
 
   return (
@@ -91,13 +92,11 @@ export default function BlogDetailModal({ isOpen, setIsOpen, blog }) {
                       <p>
                         Rating:
                         {[...Array(parseInt(rating))].map((rate) => (
-                          <>
-                            <StarIcon
-                              key={rate}
-                              className="text-orange-300  h-5 w-5 flex-shrink-0 inline-block"
-                              aria-hidden="true"
-                            />
-                          </>
+                          <StarIcon
+                            key={_id}
+                            className="text-orange-300  h-5 w-5 flex-shrink-0 inline-block"
+                            aria-hidden="true"
+                          />
                         ))}
                       </p>
                     </div>

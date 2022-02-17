@@ -3,7 +3,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
 const AdminRoute = ({ children, ...rest }) => {
-  const { user, isLoading, admin, adminLoading } = useAuth();
+  const { user, admin, adminLoading } = useAuth();
   console.log(user.email, admin);
   const location = useLocation();
   if (adminLoading) {

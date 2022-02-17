@@ -45,7 +45,7 @@ const Blogs = () => {
       <div>
         <div className="grid md:mx-4 grid-cols-1 lg:mx-56 lg:grid-cols-3  gap-3 ">
           {blogs.map((blog) => (
-            <Blog blog={blog} key={blog.id} setReload={setReload} />
+            <Blog blog={blog} key={blog._id} setReload={setReload} />
           ))}
         </div>
         {/* pagination */}

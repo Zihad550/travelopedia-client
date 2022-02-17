@@ -7,8 +7,10 @@ export default function Example({
   setApplyFilter,
   filterOptions,
   setFilterOptions,
+  setNoBlogs,
 }) {
   const handleFilterOption = (e) => {
+    setApplyFilter(false);
     const newData = { ...filterOptions };
     newData[e.target.name] = e.target.value;
     setFilterOptions(newData);
@@ -82,15 +84,8 @@ export default function Example({
           leaveTo="transform opacity-0 scale-95"
         >
           <Menu.Items className="absolute right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none h-screen">
-            <div className="p-5">
-              <h4 className="text-2xl">Top Rated Spots</h4>
-              <p>Palestine</p>
-              <p>Dubai</p>
-              <p>Chicago</p>
-              <p>Paris</p>
-            </div>
             <div className="px-5">
-              <h4 className="text-2xl">Filter Options</h4>
+              <h4 className="text-2xl mt-5">Filter Options</h4>
               <button
                 onClick={() => setFilter("topRated")}
                 className="bg-yellow-500 rounded-lg py-1 px-2 text-white my-2 focus:bg-green-500"
@@ -166,7 +161,7 @@ export default function Example({
                 {/* filter by country */}
 
                 {/* Select Price Range */}
-                <div className="mt-3">
+                {/* <div className="mt-3">
                   <label
                     for="countries"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
@@ -176,7 +171,7 @@ export default function Example({
                   <div className="flex">
                     <input
                       name="minPrice"
-                      onChange={handleFilterOption}
+                      onBlur={handleFilterOption}
                       placeholder="Minium Price"
                       min="0"
                       type="number"
@@ -184,7 +179,7 @@ export default function Example({
                       required
                     />
                     <input
-                      onChange={handleFilterOption}
+                      onBlur={handleFilterOption}
                       name="maxPrice"
                       placeholder="Maximum Price"
                       min="0"
@@ -193,7 +188,7 @@ export default function Example({
                       required
                     />
                   </div>
-                </div>
+                </div> */}
                 {/* filter Select Price Range */}
 
                 {/* filter applying btn */}

@@ -12,6 +12,7 @@ const Home = () => {
   const [filter, setFilter] = useState("");
   const [applyFilter, setApplyFilter] = useState(false);
   const [filterOptions, setFilterOptions] = useState({});
+  const [noBlogs, setNoBlogs] = useState(false);
   console.log(applyFilter, filterOptions);
   const { author, country, minPrice, maxPrice } = filterOptions;
   console.log(author, country, minPrice, maxPrice);
@@ -22,10 +23,11 @@ const Home = () => {
     )
       .then((res) => res.json())
       .then((data) => {
+        data.count === 0 && setNoBlogs(true);
+        data.count > 0 && setNoBlogs(false);
         console.log(data.count);
         setBlogs(data.blogs);
         setPageCount(Math.ceil(data.count / size));
-        setApplyFilter(false);
       });
   }, [currentPage, filter, applyFilter]);
   return (
@@ -43,6 +45,7 @@ const Home = () => {
         pageCount={pageCount}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
+        noBlogs={noBlogs}
       />
 
       <Sponsors />
