@@ -19,7 +19,7 @@ const Home = () => {
   const size = 10;
   useEffect(() => {
     fetch(
-      `http://localhost:8000/blogs?page=${currentPage}&&size=${size}&&status=approved&&filter=${filter}&&author=${author}&&country=${country}&&minPrice=${minPrice}&&maxPrice=${maxPrice}&&applyFilter=${applyFilter}`
+      `https://tranquil-springs-69154.herokuapp.com/blogs?page=${currentPage}&&size=${size}&&status=approved&&filter=${filter}&&author=${author}&&country=${country}&&minPrice=${minPrice}&&maxPrice=${maxPrice}&&applyFilter=${applyFilter}`
     )
       .then((res) => res.json())
       .then((data) => {
