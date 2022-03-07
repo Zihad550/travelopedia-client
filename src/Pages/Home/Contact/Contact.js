@@ -1,7 +1,7 @@
 import {
   faFacebook,
   faGithub,
-  faLinkedin,
+  faLinkedin
 } from "@fortawesome/free-brands-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -42,10 +42,10 @@ const Contact = () => {
   };
 
   return (
-    <div>
+    <div >
       <Header />
       <Title classes="mt-5">Contact Us</Title>
-      <div className="grid grid-cols-2 gap-5 mx-5 py-10">
+      <div className="grid grid-cols-2 gap-20  py-10 w-3/4 mx-auto">
         {/* contact */}
         <div className="">
           {/* img */}
