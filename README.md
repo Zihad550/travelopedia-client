@@ -8,7 +8,7 @@ Live Website [Travelopedia](https://travel-agency-cc802.web.app/)
 | ----------- | ---------- |
 | React.js    | Node.js    |
 | TailwindCSS | Express.js |
-| Firebase    |            |
+| Firebase    | MongoDB    |
 
 ## Features
 
