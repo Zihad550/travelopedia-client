@@ -24,7 +24,7 @@ const CreateBlog = () => {
   const handleSubmit = (e) => {
     setIsOpen(false);
     e.preventDefault();
-    if (!src && fieldData === []) {
+    if (!src && !fieldData.length) {
       return;
     }
     const formData = new FormData();
