@@ -4,10 +4,11 @@ Live Website [Travelopedia](https://travel-agency-cc802.web.app/)
 
 ## Technologies
 
-| Frontend | Backend |
-| React.js | Node.js |
+| Frontend    | Backend    |
+| ----------- | ---------- |
+| React.js    | Node.js    |
 | TailwindCSS | Express.js |
-| Firebase |
+| Firebase    |            |
 
 ## Features
 
